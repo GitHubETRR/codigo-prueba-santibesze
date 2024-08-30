@@ -23,5 +23,4 @@ int main(){
     {
         printf("El alumno obtuvo un desaprobado");
     }
-    
 }
