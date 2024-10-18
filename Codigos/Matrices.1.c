@@ -23,7 +23,7 @@ void val_aleatorios(int matriz[N][N]){
         for (int j = 0; j < N; j++)
         {
             matriz[i][j] = rand() % 30+1;
-            printf (  "%2d  ", matriz[i][j]);
+            printf (  "|%2d|  ", matriz[i][j]);
         }
         printf("\n");
     }
