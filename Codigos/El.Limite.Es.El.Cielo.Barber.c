@@ -67,16 +67,18 @@ int main(){
 
 void ListaTurnos(cliente_t clientes[MAX_TURNOS]){
     int Aux;
+    printf("===========================================\n");
     printf("Turnos:\n");
+    printf("===========================================\n");
     for (int i = 0; i < MAX_TURNOS; i++)
     {
         if (clientes[i].Ocupado==0)
         {
-            printf("Turno %d de las %d:%02d disponible.\n",clientes[i].NumTurno,clientes[i].Hora,clientes[i].Minutos);
+            printf("Turno %d de las %d:%02d - Disponible.\n",clientes[i].NumTurno,clientes[i].Hora,clientes[i].Minutos);
         }
         else
         {
-            printf("Turno %d de las %d:%02d ocupado.\n",clientes[i].NumTurno,clientes[i].Hora,clientes[i].Minutos);
+            printf("Turno %d de las %d:%02d - Ocupado.\n",clientes[i].NumTurno,clientes[i].Hora,clientes[i].Minutos);
         }
         
     }
@@ -88,7 +90,7 @@ void ElegirTurno(cliente_t clientes[MAX_TURNOS]){
     do{
         printf("Estos son los turnos disponibles:\n");
         ListaTurnos(clientes);
-        printf("Elija un turno del 1 al %d (0 para salir):",MAX_TURNOS);
+        printf("Elija un turno del 1 al %d (0 para ir al MENU):",MAX_TURNOS);
         scanf("%d",&TurnoElegido);
         if (TurnoElegido==0)
         {
@@ -122,11 +124,11 @@ void ElegirTurno(cliente_t clientes[MAX_TURNOS]){
     printf("Por ultimo seleccione el tipo de servicio que nescesita.\nEscriba 1 para corte y 2 para corte y barba.\n");
     printf("Corte (1) ----- Corte y barba (2)\n");
     scanf("%d",&TurnoSeleccionado->TipoCorte);
-    if (TurnoSeleccionado==1)
+    if (TurnoSeleccionado->TipoCorte==1)
     {
         printf("El turno %d de corte fue asignado para %s %s\n",TurnoElegido,TurnoSeleccionado->Nombre,TurnoSeleccionado->Apellido);
     }
-    else if(TurnoSeleccionado==2)
+    else if(TurnoSeleccionado->TipoCorte==2)
     {
         printf("El turno %d de corte y barba fue asignado para %s %s\n",TurnoElegido,TurnoSeleccionado->Nombre,TurnoSeleccionado->Apellido);
     }
